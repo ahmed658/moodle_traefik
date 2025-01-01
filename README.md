@@ -198,7 +198,7 @@ Once Traefik is up and running, proceed to deploy the Moodle application.
 3. **Deploy Moodle Using Docker Compose**
 
    ```bash
-   docker compose -f moodle-example.yaml -d
+   docker compose -f moodle-example.yaml up -d
    ```
 
    This will start the Moodle and PostgreSQL services in detached mode.

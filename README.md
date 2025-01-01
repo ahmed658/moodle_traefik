@@ -9,6 +9,7 @@ Welcome to the **Moodle Traefik Deployment** project. This repository provides a
 - [Project Structure](#project-structure)
 - [Configuration](#configuration)
   - [Environment Variables](#environment-variables)
+  - [Volumes](#volumes)
 - [Deployment](#deployment)
   - [Deploying Traefik](#deploying-traefik)
   - [Deploying Moodle](#deploying-moodle)
@@ -143,6 +144,34 @@ moodle_traefik/
    echo 'EMAIL=admin@example.com' >> ./traefik/traefik.env
    echo 'HASHED_PASSWORD='$(openssl passwd -apr1 changeit | sed -e s/\$/\$\$/g) >> ./traefik/traefik.env
    ```
+
+---
+
+## Volumes
+### Defined Volumes
+
+1. **Database Data Volume**
+
+   - **Volume Name**: `db_data`
+   - **Environment Variable**: `DB_VOLUME_NAME`
+   - **Purpose**: Stores PostgreSQL database data, ensuring that all Moodle-related database information is preserved.
+   - **Container Mount Point**: `/var/lib/postgresql/data`
+
+
+2. **Moodle Data Volume**
+
+   - **Volume Name**: `moodle_data`
+   - **Environment Variable**: `MOODLE_DATA_VOLUME_NAME`
+   - **Purpose**: Stores Moodle's uploaded files, course materials, and other user-generated content.
+   - **Container Mount Point**: `/var/moodledata`
+
+
+3. **Moodle Source Code Volume**
+
+   - **Volume Name**: `moodlesourcecode_data`
+   - **Environment Variable**: `MOODLE_SOURCE_VOLUME_NAME`
+   - **Purpose**: Contains the Moodle application's source code, allowing for easy updates and customization.
+   - **Container Mount Point**: `/var/www/html`
 
 
 ## Deployment

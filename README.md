@@ -94,6 +94,12 @@ moodle_traefik/
     - **Description**: Public URL for accessing the Moodle instance.
     - **Example**: `moodleinst.mosalam.com`
 
+13. **MOODLE_ADMIN_PASSWORD**
+    - **Description**: Password for the Moodle admin Dashboard.
+    - **Example**: `adminPass`
+
+
+
 *Ensure all environment variables are set correctly before deploying the application.*
 
    Create a copy of the example environment file and customize it with your settings:
@@ -117,6 +123,7 @@ moodle_traefik/
    MOODLE_DB_USER=moodleuser1
    MOODLE_DB_PASSWORD=customer1password
    MOODLE_URL=moodleinst.mosalam.com
+   MOODLE_ADMIN_PASSWORD=adminPass
    ```
 
 ---
